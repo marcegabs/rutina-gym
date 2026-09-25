@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { supabase, supabaseConfigured } from '@/lib/supabase.js';
+import { supabase, supabaseConfigured, supabaseProblem } from '@/lib/supabase.js';
 import { loadAll } from '@/lib/data.js';
 import TrainingApp from './TrainingApp.jsx';
 import { Shape } from './Icons.jsx';
@@ -40,6 +40,7 @@ export default function AppRoot() {
     return (
       <Centered>
         <h1 className="disp" style={{ margin: 0, fontSize: 30 }}>Falta conectar Supabase</h1>
+        <p className="status ok" style={{ margin: 0 }}>{supabaseProblem}</p>
         <p className="muted" style={{ margin: 0, lineHeight: 1.5 }}>
           Agrega <code>NEXT_PUBLIC_SUPABASE_URL</code> y <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code> en Vercel (Settings → Environment Variables) o en <code>.env.local</code>, y vuelve a desplegar.
         </p>
